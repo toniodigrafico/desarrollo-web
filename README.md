@@ -1,1 +1,2 @@
-Este es el repositorio en mi cuenta de github
+Este es el repositorio del curso de desarrollo web en mi cuenta de github
+Lamision es convertirlo en El tiempo tambien Dibújalo.
