@@ -17,12 +17,14 @@
 
   var cities = [];
   var cityWeather = {};
+  cityWeather.bg;
   cityWeather.zone;
   cityWeather.icon;
   cityWeather.temp;
   cityWeather.temp_max;
   cityWeather.temp_min;
   cityWeather.main;
+
 
   buttonAdd.on("click", addNewCity);
 
@@ -40,7 +42,7 @@
   } else {
     alert("Por favor, actualiza tu navegador");
   }
-
+ 
   function errorFound(error) {
     alert("Un error ocurrió: " + error.code);
     // 0: Error desconocido
@@ -58,6 +60,7 @@
   };
 
   function getCurrentWeather(data) {
+    cityWeather.bg = data.weather[0].icon;
     cityWeather.zone = data.name;
     cityWeather.icon = IMG_WEATHER + data.weather[0].icon + ".png";
     cityWeather.temp = data.main.temp - 273.15;
@@ -75,6 +78,7 @@
 
   function renderTemplate(cityWeather, localtime) {
     var clone = activateTemplate("#template--city");
+    $( ".card" ).addClass("dibujalo" ) 
 
     var timeToShow;
     if(localtime) {
@@ -82,7 +86,7 @@
     } else {
       timeToShow = timeNow;
     }
-
+    clone.querySelector("[data-bg]").addClass = cityWeather.bg;
     clone.querySelector("[data-time]").innerHTML = timeToShow;
     clone.querySelector("[data-city]").innerHTML = cityWeather.zone;
     clone.querySelector("[data-icon]").src = cityWeather.icon;
@@ -92,6 +96,7 @@
 
     $loader.hide();
     $body.append(clone);
+
   }
 
   function addNewCity(event) {
@@ -106,6 +111,7 @@
       nombreNuevaCiudad.val("");
 
       cityWeather = {};
+      cityWeather.bg = data.weather[0].icon;
       cityWeather.zone = data.name;
       cityWeather.icon = IMG_WEATHER + data.weather[0].icon + ".png";
       cityWeather.temp = data.main.temp - 273.15;
@@ -128,5 +134,6 @@
       renderTemplate(city);
     });
   }
+
 
 })();
