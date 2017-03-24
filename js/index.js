@@ -3,8 +3,8 @@
   var API_WORLDTIME_KEY = "d6a4075ceb419113c64885d9086d5";
   var API_WORLDTIME = "https://api.worldweatheronline.com/free/v2/tz.ashx?format=json&key=" + API_WORLDTIME_KEY + "&q=";
   var API_WEATHER_KEY = "f3c10900b06936c02414fb64f2913c2a";
-  var API_WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_WEATHER_KEY + "&";
-  var IMG_WEATHER = "http://openweathermap.org/img/w/";
+  var API_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_WEATHER_KEY + "&";
+  var IMG_WEATHER = "https://openweathermap.org/img/w/";
 
   var today = new Date();
   var timeNow = today.toLocaleTimeString();
